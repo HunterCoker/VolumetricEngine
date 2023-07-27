@@ -1,0 +1,23 @@
+# ninja log v5
+1	535	1690418884224169452	CMakeFiles/volumetric_engine.dir/core/main.cpp.o	2341547bbd9790a1
+0	186	1690347479043543429	CMakeFiles/volumetric_engine.dir/main.cpp.o	901bd0df21eaa1ea
+429	512	1690418895308099685	volumetric_engine	1304ebb09776bdcc
+1	497	1690418884188169680	CMakeFiles/volumetric_engine.dir/renderer/shader.cpp.o	a5bdb56b307c2738
+2	128	1690418883816172022	CMakeFiles/volumetric_engine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o	8c1f89de4ccf9c00
+2	1787	1690418885476161568	CMakeFiles/volumetric_engine.dir/vendor/imgui/imgui.cpp.o	541cccff9b6eb339
+1	429	1690418895228100189	CMakeFiles/volumetric_engine.dir/stb_image.cpp.o	5e42815021700395
+1	8	1690417918326800568	CMakeFiles/volumetric_engine.dir/volumetric_engine.cc.o	60210881808eea4e
+2	98	1690418883788172199	CMakeFiles/volumetric_engine.dir/glad.c.o	3f98c17b6b9b0d94
+2	201	1690418883888171568	CMakeFiles/volumetric_engine.dir/vendor/imgui/backends/imgui_impl_glfw.cpp.o	f8894c5516f781d4
+1	362	1690418884052170535	CMakeFiles/volumetric_engine.dir/renderer/camera.cpp.o	88d6320987042ba5
+2	982	1690418884672166631	CMakeFiles/volumetric_engine.dir/vendor/imgui/imgui_draw.cpp.o	9888a728045bd211
+2	1168	1690418884856165472	CMakeFiles/volumetric_engine.dir/vendor/imgui/imgui_widgets.cpp.o	290e8c65d718ea8e
+1	227	1690418883916171392	CMakeFiles/volumetric_engine.dir/renderer/texture.cpp.o	9d41b0f1a26ccb23
+2	775	1690418884464167942	CMakeFiles/volumetric_engine.dir/vendor/imgui/imgui_tables.cpp.o	2f49c9b6deadd4d0
+1	811	1690419469160553863	CMakeFiles/volumetric_engine.dir/core/main.cpp.o	2341547bbd9790a1
+1	4378	1690419541308150756	CMakeFiles/volumetric_engine.dir/vendor.cpp.o	b9ace2480de3328a
+1	578	1690419553912113832	CMakeFiles/volumetric_engine.dir/core/main.cpp.o	2341547bbd9790a1
+1	4495	1690419596059984392	CMakeFiles/volumetric_engine.dir/vendor.cpp.o	b9ace2480de3328a
+4495	4673	1690419596243983807	volumetric_engine	a3f0b77a6e516804
+1	819	1690419658447777172	CMakeFiles/volumetric_engine.dir/core/main.cpp.o	2341547bbd9790a1
+819	995	1690419658623776564	volumetric_engine	a3f0b77a6e516804

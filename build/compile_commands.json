@@ -1,0 +1,62 @@
+[
+{
+  "directory": "/home/hunter/dev/volumetric_engine/build",
+  "command": "/usr/bin/c++ -I/home/hunter/dev/dependencies/glad/include -I/home/hunter/dev/volumetric_engine/./vendor/stb -I/home/hunter/dev/volumetric_engine/./vendor/imgui -I/home/hunter/dev/volumetric_engine/./vendor/imgui/backends -I/home/hunter/dev/volumetric_engine/./vendor/tinygltf -g -o CMakeFiles/volumetric_engine.dir/core/main.cpp.o -c /home/hunter/dev/volumetric_engine/core/main.cpp",
+  "file": "/home/hunter/dev/volumetric_engine/core/main.cpp"
+},
+{
+  "directory": "/home/hunter/dev/volumetric_engine/build",
+  "command": "/usr/bin/c++ -I/home/hunter/dev/dependencies/glad/include -I/home/hunter/dev/volumetric_engine/./vendor/stb -I/home/hunter/dev/volumetric_engine/./vendor/imgui -I/home/hunter/dev/volumetric_engine/./vendor/imgui/backends -I/home/hunter/dev/volumetric_engine/./vendor/tinygltf -g -o CMakeFiles/volumetric_engine.dir/renderer/shader.cpp.o -c /home/hunter/dev/volumetric_engine/renderer/shader.cpp",
+  "file": "/home/hunter/dev/volumetric_engine/renderer/shader.cpp"
+},
+{
+  "directory": "/home/hunter/dev/volumetric_engine/build",
+  "command": "/usr/bin/c++ -I/home/hunter/dev/dependencies/glad/include -I/home/hunter/dev/volumetric_engine/./vendor/stb -I/home/hunter/dev/volumetric_engine/./vendor/imgui -I/home/hunter/dev/volumetric_engine/./vendor/imgui/backends -I/home/hunter/dev/volumetric_engine/./vendor/tinygltf -g -o CMakeFiles/volumetric_engine.dir/renderer/texture.cpp.o -c /home/hunter/dev/volumetric_engine/renderer/texture.cpp",
+  "file": "/home/hunter/dev/volumetric_engine/renderer/texture.cpp"
+},
+{
+  "directory": "/home/hunter/dev/volumetric_engine/build",
+  "command": "/usr/bin/c++ -I/home/hunter/dev/dependencies/glad/include -I/home/hunter/dev/volumetric_engine/./vendor/stb -I/home/hunter/dev/volumetric_engine/./vendor/imgui -I/home/hunter/dev/volumetric_engine/./vendor/imgui/backends -I/home/hunter/dev/volumetric_engine/./vendor/tinygltf -g -o CMakeFiles/volumetric_engine.dir/renderer/camera.cpp.o -c /home/hunter/dev/volumetric_engine/renderer/camera.cpp",
+  "file": "/home/hunter/dev/volumetric_engine/renderer/camera.cpp"
+},
+{
+  "directory": "/home/hunter/dev/volumetric_engine/build",
+  "command": "/usr/bin/c++ -I/home/hunter/dev/dependencies/glad/include -I/home/hunter/dev/volumetric_engine/./vendor/stb -I/home/hunter/dev/volumetric_engine/./vendor/imgui -I/home/hunter/dev/volumetric_engine/./vendor/imgui/backends -I/home/hunter/dev/volumetric_engine/./vendor/tinygltf -g -o CMakeFiles/volumetric_engine.dir/vendor/imgui/imgui.cpp.o -c /home/hunter/dev/volumetric_engine/vendor/imgui/imgui.cpp",
+  "file": "/home/hunter/dev/volumetric_engine/vendor/imgui/imgui.cpp"
+},
+{
+  "directory": "/home/hunter/dev/volumetric_engine/build",
+  "command": "/usr/bin/c++ -I/home/hunter/dev/dependencies/glad/include -I/home/hunter/dev/volumetric_engine/./vendor/stb -I/home/hunter/dev/volumetric_engine/./vendor/imgui -I/home/hunter/dev/volumetric_engine/./vendor/imgui/backends -I/home/hunter/dev/volumetric_engine/./vendor/tinygltf -g -o CMakeFiles/volumetric_engine.dir/vendor/imgui/imgui_draw.cpp.o -c /home/hunter/dev/volumetric_engine/vendor/imgui/imgui_draw.cpp",
+  "file": "/home/hunter/dev/volumetric_engine/vendor/imgui/imgui_draw.cpp"
+},
+{
+  "directory": "/home/hunter/dev/volumetric_engine/build",
+  "command": "/usr/bin/c++ -I/home/hunter/dev/dependencies/glad/include -I/home/hunter/dev/volumetric_engine/./vendor/stb -I/home/hunter/dev/volumetric_engine/./vendor/imgui -I/home/hunter/dev/volumetric_engine/./vendor/imgui/backends -I/home/hunter/dev/volumetric_engine/./vendor/tinygltf -g -o CMakeFiles/volumetric_engine.dir/vendor/imgui/imgui_tables.cpp.o -c /home/hunter/dev/volumetric_engine/vendor/imgui/imgui_tables.cpp",
+  "file": "/home/hunter/dev/volumetric_engine/vendor/imgui/imgui_tables.cpp"
+},
+{
+  "directory": "/home/hunter/dev/volumetric_engine/build",
+  "command": "/usr/bin/c++ -I/home/hunter/dev/dependencies/glad/include -I/home/hunter/dev/volumetric_engine/./vendor/stb -I/home/hunter/dev/volumetric_engine/./vendor/imgui -I/home/hunter/dev/volumetric_engine/./vendor/imgui/backends -I/home/hunter/dev/volumetric_engine/./vendor/tinygltf -g -o CMakeFiles/volumetric_engine.dir/vendor/imgui/imgui_widgets.cpp.o -c /home/hunter/dev/volumetric_engine/vendor/imgui/imgui_widgets.cpp",
+  "file": "/home/hunter/dev/volumetric_engine/vendor/imgui/imgui_widgets.cpp"
+},
+{
+  "directory": "/home/hunter/dev/volumetric_engine/build",
+  "command": "/usr/bin/c++ -I/home/hunter/dev/dependencies/glad/include -I/home/hunter/dev/volumetric_engine/./vendor/stb -I/home/hunter/dev/volumetric_engine/./vendor/imgui -I/home/hunter/dev/volumetric_engine/./vendor/imgui/backends -I/home/hunter/dev/volumetric_engine/./vendor/tinygltf -g -o CMakeFiles/volumetric_engine.dir/vendor/imgui/backends/imgui_impl_glfw.cpp.o -c /home/hunter/dev/volumetric_engine/vendor/imgui/backends/imgui_impl_glfw.cpp",
+  "file": "/home/hunter/dev/volumetric_engine/vendor/imgui/backends/imgui_impl_glfw.cpp"
+},
+{
+  "directory": "/home/hunter/dev/volumetric_engine/build",
+  "command": "/usr/bin/c++ -I/home/hunter/dev/dependencies/glad/include -I/home/hunter/dev/volumetric_engine/./vendor/stb -I/home/hunter/dev/volumetric_engine/./vendor/imgui -I/home/hunter/dev/volumetric_engine/./vendor/imgui/backends -I/home/hunter/dev/volumetric_engine/./vendor/tinygltf -g -o CMakeFiles/volumetric_engine.dir/vendor/imgui/backends/imgui_impl_opengl3.cpp.o -c /home/hunter/dev/volumetric_engine/vendor/imgui/backends/imgui_impl_opengl3.cpp",
+  "file": "/home/hunter/dev/volumetric_engine/vendor/imgui/backends/imgui_impl_opengl3.cpp"
+},
+{
+  "directory": "/home/hunter/dev/volumetric_engine/build",
+  "command": "/usr/bin/c++ -I/home/hunter/dev/dependencies/glad/include -I/home/hunter/dev/volumetric_engine/./vendor/stb -I/home/hunter/dev/volumetric_engine/./vendor/imgui -I/home/hunter/dev/volumetric_engine/./vendor/imgui/backends -I/home/hunter/dev/volumetric_engine/./vendor/tinygltf -g -o CMakeFiles/volumetric_engine.dir/vendor.cpp.o -c /home/hunter/dev/volumetric_engine/vendor.cpp",
+  "file": "/home/hunter/dev/volumetric_engine/vendor.cpp"
+},
+{
+  "directory": "/home/hunter/dev/volumetric_engine/build",
+  "command": "/usr/bin/gcc-12 -I/home/hunter/dev/dependencies/glad/include -I/home/hunter/dev/volumetric_engine/./vendor/stb -I/home/hunter/dev/volumetric_engine/./vendor/imgui -I/home/hunter/dev/volumetric_engine/./vendor/imgui/backends -I/home/hunter/dev/volumetric_engine/./vendor/tinygltf -g -o CMakeFiles/volumetric_engine.dir/glad.c.o -c /home/hunter/dev/volumetric_engine/glad.c",
+  "file": "/home/hunter/dev/volumetric_engine/glad.c"
+}
+]

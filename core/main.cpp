@@ -88,45 +88,60 @@ int main() {
 	shader shader("../assets/shaders/vertex.glsl", "../assets/shaders/fragment.glsl");
 	shader.bind();
 
-	tinygltf::Model model;
-	tinygltf::TinyGLTF loader;
-	std::string err;
-	std::string warn;
-	bool ret = loader.LoadBinaryFromFile(&model, &err, &warn, "../assets/models/phoenix_bird.glb");
-	if (!warn.empty())
-		printf("Warn: %s\n", warn.c_str());
-	if (!err.empty())
-		printf("Err: %s\n", err.c_str());
-	if (!ret) {
-		std::cerr << "error: failed to parse GLTF model!\n";
-		return -1;
-	}
-
+	GLuint vao, vbo, ibo;
+	glGenVertexArrays(1 , &vao);
+	glBindVertexArray(vao);
 	
-	std::vector<GLuint> vertex_buffers(model.buffers.size(), 0);
-	glGenBuffers(model.buffers.size(), vertex_buffers.data());
-	for (std::size_t i = 0; i < model.buffers.size(); ++i) {
-		auto buffer = model.buffers[i];
-		glBindBuffer(GL_ARRAY_BUFFER, vertex_buffers[i]);
-		glBufferData(GL_ARRAY_BUFFER, buffer.data.size(), buffer.data.data(), 0);
-	}
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-	GLuint vertex_array = 0;
-	glGenVertexArrays(1, &vertex_array);
-	glBindVertexArray(vertex_array);
-
-	glBindBuffer(GL_ARRAY_BUFFER, position_buffer_object);
+	glGenBuffers(1, &vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, position_byte_stride, (void*)position_byte_offset);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 5, static_cast<void*>(0));
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 5, (GLvoid*)(3 * sizeof(float)));
 
-	glBindBuffer(GL_ARRAY_BUFFER, normal_buffer_object);
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, normal_byte_stride, (void*)normal_byte_offset);
+	glGenBuffers(1, &ibo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+	// tinygltf::Model model;
+	// tinygltf::TinyGLTF loader;
+	// std::string err;
+	// std::string warn;
+	// bool ret = loader.LoadBinaryFromFile(&model, &err, &warn, "../assets/models/phoenix_bird.glb");
+	// if (!warn.empty())
+	// 	printf("Warn: %s\n", warn.c_str());
+	// if (!err.empty())
+	// 	printf("Err: %s\n", err.c_str());
+	// if (!ret) {
+	// 	std::cerr << "error: failed to parse GLTF model!\n";
+	// 	return -1;
+	// }
 	
-	glBindBuffer(GL_ARRAY_BUFFER, texcoord_buffer_object);
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, texcoord_byte_stride, (void*)texcoord_byte_offset);
+	// std::vector<GLuint> vertex_buffers(model.buffers.size(), 0);
+	// glGenBuffers(model.buffers.size(), vertex_buffers.data());
+	// for (std::size_t i = 0; i < model.buffers.size(); ++i) {
+	// 	auto buffer = model.buffers[i];
+	// 	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffers[i]);
+	// 	glBufferData(GL_ARRAY_BUFFER, buffer.data.size(), buffer.data.data(), 0);
+	// }
+	// glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	// GLuint vertex_array = 0;
+	// glGenVertexArrays(1, &vertex_array);
+	// glBindVertexArray(vertex_array);
+
+	// glBindBuffer(GL_ARRAY_BUFFER, position_buffer_object);
+	// glEnableVertexAttribArray(0);
+	// glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, position_byte_stride, (void*)position_byte_offset);
+
+	// glBindBuffer(GL_ARRAY_BUFFER, normal_buffer_object);
+	// glEnableVertexAttribArray(1);
+	// glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, normal_byte_stride, (void*)normal_byte_offset);
+	
+	// glBindBuffer(GL_ARRAY_BUFFER, texcoord_buffer_object);
+	// glEnableVertexAttribArray(1);
+	// glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, texcoord_byte_stride, (void*)texcoord_byte_offset);
 	
 	float start, end;
 	float dt = 0;
@@ -184,7 +199,7 @@ int main() {
 
 		// Rendering
         ImGui::Render();
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, index_buffer);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 		glfwSwapBuffers(window);

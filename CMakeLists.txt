@@ -20,10 +20,18 @@ set(RENDERER_SOURCES
 	"${RENDERER_SOURCES_DIR}/texture.cpp"
 	"${RENDERER_SOURCES_DIR}/camera.cpp")
 
-add_executable(volumetric_engine ${CORE_SOURCES} ${RENDERER_SOURCES} ${IMGUI_SOURCES} vendor.cpp glad.c)
+add_subdirectory("./vendor/glfw")
+
+add_executable(volumetric_engine
+	${CORE_SOURCES}
+	${RENDERER_SOURCES} ${IMGUI_SOURCES}
+	"vendor.cpp"
+	"./vendor/glad/src/glad.c")
 
 target_include_directories(${PROJECT_NAME}
-	PRIVATE "~/dev/dependencies/glad/include"
+	PRIVATE "./vendor/glad/include"
+	PRIVATE "./vendor/glfw/includes"
+	PRIVATE "./vendor/glm"
 	PRIVATE "./vendor/stb"
 	PRIVATE "./vendor/imgui"
 	PRIVATE "./vendor/imgui/backends"

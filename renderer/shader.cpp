@@ -1,4 +1,4 @@
-#include "shader.hpp"
+#include "Shader.hpp"
 
 #include <glm/gtc/type_ptr.hpp>
 
@@ -6,7 +6,7 @@
 #include <sstream>
 #include <iostream>
 
-shader::shader(const std::string& vertex_path, const std::string& fragment_path) {
+Shader::Shader(const std::string& vertex_path, const std::string& fragment_path) {
 	std::ifstream vertex_file;
 	std::stringstream vertex_stream;
 	vertex_file.exceptions(std::ios::failbit | std::ios::badbit);
@@ -15,7 +15,7 @@ shader::shader(const std::string& vertex_path, const std::string& fragment_path)
 		vertex_stream << vertex_file.rdbuf();
 	}
 	catch(std::ifstream::failure e) {
-		std::cerr << "error: failed to read vertex shader file\n";
+		std::cerr << "error: failed to read vertex Shader file\n";
 	}
 
 	std::ifstream fragment_file;
@@ -26,7 +26,7 @@ shader::shader(const std::string& vertex_path, const std::string& fragment_path)
 		fragment_stream << fragment_file.rdbuf();
 	}
 	catch(std::ifstream::failure e) {
-		std::cerr << "error: failed to read fragment shader file\n";
+		std::cerr << "error: failed to read fragment Shader file\n";
 	}
 
 	std::string t_vertex = vertex_stream.str();
@@ -46,13 +46,13 @@ shader::shader(const std::string& vertex_path, const std::string& fragment_path)
 	glGetShaderiv(vertex_shader, GL_COMPILE_STATUS, &success);
 	if(!success) {
 		glGetShaderInfoLog(vertex_shader, 512, NULL, infoLog);
-		std::cerr << "error: vertex shader failed to compile!\n" << infoLog << '\n';
+		std::cerr << "error: vertex Shader failed to compile!\n" << infoLog << '\n';
 	}
 
 	glGetShaderiv(fragment_shader, GL_COMPILE_STATUS, &success);
 	if(!success) {
 		glGetShaderInfoLog(vertex_shader, 512, NULL, infoLog);
-		std::cerr << "error: fragment shader failed to compile!" << infoLog << '\n';
+		std::cerr << "error: fragment Shader failed to compile!" << infoLog << '\n';
 	}
 
 	program_ = glCreateProgram();
@@ -63,33 +63,33 @@ shader::shader(const std::string& vertex_path, const std::string& fragment_path)
 	glGetShaderiv(program_, GL_LINK_STATUS, &success);
 	if(!success) {
 		glGetShaderInfoLog(program_, 512, NULL, infoLog);
-		std::cerr << "error: fragment shader failed to compile!" << infoLog << '\n';
+		std::cerr << "error: fragment Shader failed to compile!" << infoLog << '\n';
 	}
 
 	glDeleteShader(vertex_shader);
 	glDeleteShader(fragment_shader);
 }
 
-shader::~shader() {
+Shader::~Shader() {
 	glDeleteProgram(program_);
 }
 
-void shader::bind() {
+void Shader::bind() {
 	glUseProgram(program_);
 }
 
-void shader::unbind() {
+void Shader::unbind() {
 	glUseProgram(0);
 }
 
-void shader::set_uniform_1f(const std::string& name, float value) {
+void Shader::setUniform1f(const std::string& name, float value) {
 	glUniform1f(glGetUniformLocation(program_, name.c_str()), value);
 }
 
-void shader::set_uniform_3f(const std::string& name, float value[3]) {
+void Shader::setUniform3f(const std::string& name, float value[3]) {
 	glUniform3f(glGetUniformLocation(program_, name.c_str()), value[0], value[1], value[2]);
 }
 
-void shader::set_uniform_m4fv(const std::string& name, glm::mat4 value) {
+void Shader::setUniformm4fv(const std::string& name, glm::mat4 value) {
 	glUniformMatrix4fv(glGetUniformLocation(program_, name.c_str()), 1, GL_FALSE, glm::value_ptr(value));
 }

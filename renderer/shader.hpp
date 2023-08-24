@@ -6,18 +6,18 @@
 
 #include <string>
 
-class shader {
+class Shader {
 public:
-	shader(const std::string& vertex_path, const std::string& fragment_path);
-	shader(const shader&) = delete;
-	~shader();
+	Shader(const std::string& vertex_path, const std::string& fragment_path);
+	Shader(const Shader&) = delete;
+	~Shader();
 
 	void bind();
 	void unbind();
 
-	void set_uniform_1f(const std::string& name, float value);
-	void set_uniform_3f(const std::string& name, float value[3]);
-	void set_uniform_m4fv(const std::string& name, glm::mat4 value);
+	void setUniform1f(const std::string& name, float value);
+	void setUniform3f(const std::string& name, float value[3]);
+	void setUniformm4fv(const std::string& name, glm::mat4 value);
 private:
 	GLuint program_;
 };

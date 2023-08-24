@@ -1,10 +1,10 @@
-#include "camera.hpp"
+#include "Camera.hpp"
 
 #include <glm/ext/matrix_transform.hpp>
 #include <glm/ext/matrix_clip_space.hpp>
 #include <glm/ext/scalar_constants.hpp>
 
-camera::camera(float fovy, float znear, float zfar)
+Camera::Camera(float fovy, float znear, float zfar)
 	:fovy_(fovy), znear_(znear), zfar_(zfar),
 	 yaw_(-90.0f), pitch_(0.0f), sensitivity_(0.1f) {
 
@@ -20,46 +20,63 @@ camera::camera(float fovy, float znear, float zfar)
 	view_ = glm::lookAt(position_, position_ + forward_, up_);
 }
 
-camera::~camera() {
+void Camera::update(float dt) {
+    auto window = glfwGetCurrentContext();
+    double xpos, ypos;
+    glfwGetCursorPos(window, &xpos, &ypos);
+    trackMouse(xpos, ypos);
 
+    float speed = 1.0f * (dt * 1.0f);
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        move(Direction::FORWARD, speed);
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        move(Direction::LEFT, speed);
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        move(Direction::BACKWARD, speed);
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        move(Direction::RIGHT, speed);
+    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+        move(Direction::UP, speed);
+    if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
+        move(Direction::DOWN, speed);
 }
 
-void camera::move(direction direction, float speed) {
-	if (direction == direction::FORWARD) {
+void Camera::move(Direction direction, float speed) {
+	if (direction == Direction::FORWARD) {
 		position_ += forward_ * speed;
 	}
-	if (direction == direction::BACKWARD) {
+	if (direction == Direction::BACKWARD) {
 		position_ -= forward_ * speed;
 	}
-	if (direction == direction::LEFT) {
+	if (direction == Direction::LEFT) {
 		position_ -= glm::normalize(glm::cross(forward_, up_)) * speed;
 	}
-	if (direction == direction::RIGHT) {
+	if (direction == Direction::RIGHT) {
 		position_ += glm::normalize(glm::cross(forward_, up_)) * speed;
 	}
-	if (direction == direction::UP) {
+	if (direction == Direction::UP) {
 		position_ += up_ * speed;
 	}
-	if (direction == direction::DOWN) {
+	if (direction == Direction::DOWN) {
 		position_ -= up_ * speed;
 	}
 	view_ = glm::lookAt(position_, position_ + forward_, up_);
 }
 
-void camera::track_mouse(double xpos, double ypos) {
+void Camera::trackMouse(double xpos, double ypos) {
 	static double last_xpos = 0;
 	static double last_ypos = 0;
 	static bool cursor_enabled = true;
 
-	GLFWwindow* window = glfwGetCurrentContext();
+	auto window = glfwGetCurrentContext();
 	if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS) {
 		if (cursor_enabled) {
 			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 			cursor_enabled = false;
 		}
 
-		float x_offset = xpos - last_xpos;
-		float y_offset = last_ypos - ypos;
+		double x_offset = xpos - last_xpos;
+		double y_offset = last_ypos - ypos;
 
 		x_offset *= sensitivity_;
 		y_offset *= sensitivity_;
@@ -89,6 +106,6 @@ void camera::track_mouse(double xpos, double ypos) {
 	view_ = glm::lookAt(position_, position_ + forward_, up_);
 }
 
-void camera::update_projection() {
+void Camera::mouseCallback(GLFWwindow* window, double x, double y) {
 
 }

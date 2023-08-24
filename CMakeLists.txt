@@ -14,18 +14,27 @@ set(IMGUI_SOURCES
 	"./vendor/imgui/backends/imgui_impl_glfw.cpp"
 	"./vendor/imgui/backends/imgui_impl_opengl3.cpp")
 set(CORE_SOURCES
-	"${CORE_SOURCES_DIR}/main.cpp")
+	"${CORE_SOURCES_DIR}/Main.cpp"
+	"${CORE_SOURCES_DIR}/Application.cpp"
+	"${CORE_SOURCES_DIR}/Window.cpp"
+	"${CORE_SOURCES_DIR}/Scene.cpp"
+	"${CORE_SOURCES_DIR}/Layer.cpp"
+	"${CORE_SOURCES_DIR}/GuiLayer.cpp"
+	"${CORE_SOURCES_DIR}/GameLayer.cpp")
 set(RENDERER_SOURCES
-	"${RENDERER_SOURCES_DIR}/shader.cpp"
-	"${RENDERER_SOURCES_DIR}/texture.cpp"
-	"${RENDERER_SOURCES_DIR}/camera.cpp")
-
+	"${RENDERER_SOURCES_DIR}/Shader.cpp"
+	"${RENDERER_SOURCES_DIR}/Texture.cpp"
+	"${RENDERER_SOURCES_DIR}/Camera.cpp"
+	"${RENDERER_SOURCES_DIR}/Primitive.cpp"
+	"${RENDERER_SOURCES_DIR}/Renderer.cpp"
+	"${RENDERER_SOURCES_DIR}/VertexArray.cpp"
+	"${RENDERER_SOURCES_DIR}/Buffers.cpp")
 add_subdirectory("./vendor/glfw")
 
 add_executable(volumetric_engine
 	${CORE_SOURCES}
 	${RENDERER_SOURCES} ${IMGUI_SOURCES}
-	"vendor.cpp"
+	"Vendor.cpp"
 	"./vendor/glad/src/glad.c")
 
 target_include_directories(${PROJECT_NAME}

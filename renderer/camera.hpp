@@ -5,13 +5,13 @@
 #include <glm/vec3.hpp>
 #include <glm/mat4x4.hpp>
 
-class camera {
+class Camera {
 public:
-	camera(float fovy = 45.0f, float znear = 0.01f, float zfar = 100.0f);
-	camera(const camera&) = delete;
-	~camera();
+	explicit Camera(float fovy = 45.0f, float znear = 0.01f, float zfar = 100.0f);
+	Camera(const Camera&) = delete;
+	~Camera() = default;
 
-	enum class direction {
+	enum class Direction {
 		FORWARD = 0,
 		BACKWARD,
 		LEFT,
@@ -20,15 +20,16 @@ public:
 		DOWN
 	};
 
-	const glm::mat4 get_projection_view() const { return projection_ * view_; }
-	void move(direction direction, float speed);
-	void track_mouse(double xpos, double ypos);
-	
-	void update_projection();
-	void mouse_callback(GLFWwindow* window, double x, double y);
+    void update(float dt);
+
+	[[nodiscard]] glm::mat4 getProjectionView() const { return projection_ * view_; }
+
+    void move(Direction direction, float speed);
+    void trackMouse(double xpos, double ypos);
+	void mouseCallback(GLFWwindow* window, double x, double y);
 private:
-	glm::mat4 view_, projection_;
-	glm::vec3 position_, forward_, up_;
+	glm::mat4 view_{}, projection_{};
+	glm::vec3 position_{}, forward_{}, up_{};
 	float fovy_, znear_, zfar_;
-	float sensitivity_, yaw_, pitch_;
+	double sensitivity_, yaw_, pitch_;
 };

@@ -4,16 +4,14 @@
 
 #include <string>
 
-class texture {
+class Texture {
 public:
-	texture(const std::string& texture_path);
-	texture(const texture&) = delete;
-	~texture();
+	Texture(const std::string& filepath);
+	Texture(const Texture&) = delete;
+	~Texture();
 
 	void bind();
 	void unbind();
-
-	void load_from_file(const std::string& texture_path);
 private:
 	GLuint handle_;
 };

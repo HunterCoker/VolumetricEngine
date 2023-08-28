@@ -14,7 +14,7 @@ set(IMGUI_SOURCES
 	"./vendor/imgui/backends/imgui_impl_glfw.cpp"
 	"./vendor/imgui/backends/imgui_impl_opengl3.cpp")
 set(CORE_SOURCES
-	"${CORE_SOURCES_DIR}/Main.cpp"
+	"${CORE_SOURCES_DIR}/main.cpp"
 	"${CORE_SOURCES_DIR}/Application.cpp"
 	"${CORE_SOURCES_DIR}/Window.cpp"
 	"${CORE_SOURCES_DIR}/Scene.cpp"
@@ -34,7 +34,7 @@ add_subdirectory("./vendor/glfw")
 add_executable(volumetric_engine
 	${CORE_SOURCES}
 	${RENDERER_SOURCES} ${IMGUI_SOURCES}
-	"Vendor.cpp"
+	"vendor.cpp"
 	"./vendor/glad/src/glad.c")
 
 target_include_directories(${PROJECT_NAME}

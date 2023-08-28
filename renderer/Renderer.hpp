@@ -14,7 +14,7 @@ class Renderer {
 public:
     Renderer();
     Renderer(const Renderer&) = delete;
-    ~Renderer();
+    ~Renderer() = default;
 
     void setActiveScene(const std::shared_ptr<Scene>& scene);
     void render();

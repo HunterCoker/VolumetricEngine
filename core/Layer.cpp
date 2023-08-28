@@ -1,4 +1,4 @@
-#include "layer.hpp"
+#include "Layer.hpp"
 
 LayerStack::~LayerStack() {
     for (auto layer : layers_)

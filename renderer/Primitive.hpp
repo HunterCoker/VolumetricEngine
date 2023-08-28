@@ -19,7 +19,7 @@ class Primitive {
 
 class Quad : Primitive {
 public:
-    Quad(float x = 0.0f, float y = 0.0f, float z = 0.0f, glm::vec2 size = glm::vec2(1.0f, 1.0f), float texID = 0.0f) {
+    explicit Quad(float x = 0.0f, float y = 0.0f, float z = 0.0f, glm::vec2 size = glm::vec2(1.0f, 1.0f), float texID = 0.0f) {
         botLeft.position = glm::vec3(x - size.x * 0.5f, y - size.y * 0.5f, z);
         botLeft.color = glm::vec3(1.0f, 0.0f, 0.0f);
         botLeft.uv = glm::vec2(0.0f, 0.0f);
@@ -41,5 +41,5 @@ public:
         topLeft.texID = texID;
     }
 public:
-    Vertex botLeft, botRight, topRight, topLeft;
+    Vertex botLeft{}, botRight{}, topRight{}, topLeft{};
 };

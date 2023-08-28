@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0.0)
 set(CMAKE_CXX_STANDARD 17)
 
-project(volumetric_engine VERSION 0.1.0 LANGUAGES C CXX)
+project(VolumetricEngine VERSION 0.1.0 LANGUAGES C CXX)
 
 set(CORE_SOURCES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/core")
 set(RENDERER_SOURCES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/renderer")
@@ -31,7 +31,7 @@ set(RENDERER_SOURCES
 	"${RENDERER_SOURCES_DIR}/Buffers.cpp")
 add_subdirectory("./vendor/glfw")
 
-add_executable(volumetric_engine
+add_executable(VolumetricEngine
 	${CORE_SOURCES}
 	${RENDERER_SOURCES} ${IMGUI_SOURCES}
 	"vendor.cpp"

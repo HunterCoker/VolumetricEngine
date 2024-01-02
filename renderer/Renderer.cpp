@@ -9,7 +9,7 @@ Renderer::Renderer()
     quadsShader_ = std::make_unique<Shader>("../assets/shaders/vertex.glsl","../assets/shaders/fragment.glsl");
 }
 
-void Renderer::setActiveScene(const std::shared_ptr<Scene>& scene) {
+void Renderer::beginScene(const std::shared_ptr<Scene>& scene) {
     activeScene_ = scene;
 
     // QUADS_VAO :: 0

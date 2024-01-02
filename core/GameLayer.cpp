@@ -1,10 +1,11 @@
 #include "GameLayer.hpp"
 
-#include "Scene.hpp"
+#include "../scene/Scene.hpp"
 
 void GameLayer::onAttach() {
-	activeScene_ = Scene::Load("../assets/scenes/main_menu.yml");
-    renderer_.setActiveScene(activeScene_);
+    renderer_.init();
+    activeScene_ = Scene::Load("../assets/scenes/main_menu.yml");
+    renderer_.beginScene();
 }
 
 void GameLayer::onDetach() {
@@ -12,7 +13,7 @@ void GameLayer::onDetach() {
 }
 
 void GameLayer::update(float dt) {
-    activeScene_->update(dt);
 
-	renderer_.render();
+
+
 }
